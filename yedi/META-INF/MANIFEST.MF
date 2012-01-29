@@ -1,0 +1,2 @@
+Manifest-Version: 0.1
+Class-Path: snakeyaml-1.9.jar
