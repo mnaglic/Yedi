@@ -7,3 +7,5 @@ I created it mostly to learn how to work with Git and Github, and also for hack 
 Still, if someone finds it useful, great. I plan to continue to work on this.
 
 Read more about Yedi [here](http://mnaglic.github.com/Yedi/) and [check out the example app that uses it](http://github.com/mnaglic/Yedi/tree/master/yedi.examples.greeter).
+
+If you want to try it out, you can download the latest version [here](https://github.com/mnaglic/Yedi/tree/master/releases).
