@@ -1,0 +1,21 @@
+beans:
+
+ englishHello: &englishHello
+  type: yedi.examples.greeter.Hello
+  properties:
+   message: Hello world!
+
+ croatianHello: &croatianHello
+  type: yedi.examples.greeter.Hello
+  properties:
+   message: Zdravo svijete!
+
+ weatherForecast: &weatherForecast
+  type: yedi.examples.greeter.WeatherForecast
+  loadingPolicy: lazy
+  constructor:
+   - 14 C
+   - 0.5 km/h
+  properties:
+   description: Partly cloudy with a chance of rain
+

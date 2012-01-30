@@ -1,0 +1,19 @@
+beans:
+
+ greeter:
+  type: yedi.examples.greeter.Greeter
+  scope: prototype
+  constructor:
+   - !!java.lang.Byte 5
+   - !!java.lang.Float 3.14
+  properties:
+   message: Greeter is capable of greeting people in many languages
+   greeting: *croatianHello
+   currentDate: 2011-12-14
+   firstNumber: 4
+   secondNumber: 3
+   forecast: *weatherForecast
+   someStrings:
+    - "Your lucky number: "
+    - "Current date is: "
+    - "Weather forecast for today"

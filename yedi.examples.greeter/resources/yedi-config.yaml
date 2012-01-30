@@ -1,0 +1,5 @@
+bean-configuration-locations:
+ - resources/beans-greeter.yaml
+ - resources/beans-greeter2.yaml
+
+global-loading-policy: eager
