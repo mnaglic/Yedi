@@ -1,88 +1,426 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset='utf-8'>
+<meta charset='utf-8'>
 
-  <title>mnaglic/Yedi @ GitHub</title>
+<title>mnaglic/Yedi @ GitHub</title>
 
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #fefdc8;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #010237; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #010237; }
-    h3 { text-align: center; color: #010237; }
-    a { color: #010237; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
+<style type="text/css">
+body {
+	margin-top: 1.0em;
+	background-color: #fefdc8;
+	font-family: Helvetica, Arial, FreeSans, san-serif;
+	color: #000000;
+}
+
+#container {
+	margin: 0 auto;
+	width: 700px;
+}
+
+h1 {
+	font-size: 3.8em;
+	color: #010237;
+	margin-bottom: 3px;
+}
+
+h1 .small {
+	font-size: 0.4em;
+}
+
+h1 a {
+	text-decoration: none
+}
+
+h2 {
+	font-size: 1.5em;
+	color: #010237;
+}
+
+h3 {
+	text-align: center;
+	color: #010237;
+}
+
+a {
+	color: #010237;
+}
+
+.description {
+	font-size: 1.2em;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	font-style: italic;
+}
+
+.download {
+	float: right;
+}
+
+pre {
+	background: #000;
+	color: #fff;
+	padding: 15px;
+}
+
+hr {
+	border: 0;
+	width: 80%;
+	border-bottom: 1px solid #aaa
+}
+
+.footer {
+	text-align: center;
+	padding-top: 30px;
+	font-style: italic;
+}
+</style>
 </head>
 
 <body>
-  <a href="https://github.com/mnaglic/Yedi"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+	<a href="https://github.com/mnaglic/Yedi"><img
+		style="position: absolute; top: 0; right: 0; border: 0;"
+		src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+		alt="Fork me on GitHub" /></a>
 
-  <div id="container">
+	<div id="container">
 
-    <div class="download">
-      <a href="https://github.com/mnaglic/Yedi/zipball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
-      <a href="https://github.com/mnaglic/Yedi/tarball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
-    </div>
+		<div class="download">
+			<a href="https://github.com/mnaglic/Yedi/zipball/master"> <img
+				border="0" width="90"
+				src="https://github.com/images/modules/download/zip.png"></a> <a
+				href="https://github.com/mnaglic/Yedi/tarball/master"> <img
+				border="0" width="90"
+				src="https://github.com/images/modules/download/tar.png"></a>
+		</div>
 
-    <h1><a href="https://github.com/mnaglic/Yedi">Yedi</a>
-      <span class="small">by <a href="https://github.com/mnaglic">mnaglic</a></span></h1>
+		<h1>
+			<a href="https://github.com/mnaglic/Yedi">Yedi</a> <span
+				class="small">by <a href="https://github.com/mnaglic">mnaglic</a></span>
+		</h1>
 
-    <div class="description">
-      YAML-enabled dependency injection
-    </div>
+		<div class="description">YAML-enabled dependency injection</div>
+		<p>
+		<ul>
+			<li><a href="#Introduction">Introduction</a></li>
+			<li><a href="#Usage">Usage</a></li>
+			<li><a href="#Dependencies">Dependencies</a></li>
+			<li><a href="#Acknowledgements">Acknowledgements</a></li>
+			<li><a href="#License">License</a></li>
+		</ul>
 
-    
 
-    
+		</p>
+		<p>
+			<a name="Introduction"><h2>Introduction</h2></a> <b>Yedi</b>
+			(Yaml-enabled dependency injection) is a dependency injection library
+			for Java that uses <a href="http://www.yaml.org">YAML</a> for
+			configuration.<br /> <br /> The main idea of Yedi is that any
+			dependency injection framework/library/whatever you use is just a
+			tool that should help you be more productive when writing your app
+			and get out of your way instead of forcing you to spend your time
+			dealing with the DI framework itself, adding special syntax to your
+			code, or writing a ton of configuration. Your objects should not have
+			to know anything about how they're getting their dependencies, and
+			they should certainly not have to contain any code that is needed
+			solely for dependency injection.<br /> The configuration itself
+			should be as simple as possible. It shoud be understandable at first
+			glance, even by people who have no prior experience with the DI
+			framework used on the project.<br /> These are the basic principles
+			behind Yedi.<br />
 
-    
+		</p>
+		<a name="Usage"><h2>Usage</h2></a>
+		<p>
+			Let's start with a program we all know and love - a simple 'Hello
+			world':<br /> <br /> <b>yedi.examples.greeter.Greeter:</b>
+		<pre>
+<code>public class Greeter {
 
-    
+    private String message;
 
-    
-      <h2>Authors</h2>
-      <p>mnaglic (themryl@yahoo.com)<br/>      </p>
-    
+    public static void main(String[] args) {
+        BeanContainer container = new BeanContainer("configuration/yedi-config.yaml");
+        Greeter greeter = container.getBean("greeter");
+        greeter.greet();
+    }
 
-    
-      <h2>Contact</h2>
-      <p> (Themryl@yahoo.com)<br/>      </p>
-    
+    private void greet() {
+        System.out.println(message);
+    }
+}
+</code>
+</pre>
+		First, we create a new instance of Yedi bean container and pass it a
+		string containing the location of Yedi's configuration file. This file
+		doesn't contain configuration of your beans, but configuration of the
+		bean container itself. We will define the location of the bean
+		configuration file in container configuration like this:<br /> <br />
+		<b>yedi-config.yaml:</b>
+		<pre>
+<code>bean-configuration-locations:
+ - configuration/beans-greeter.yaml
+</code>
+</pre>
+		If you're familiar with YAML, you'll notice that this is a list, so
+		you can have multiple configuration files for your project.<br /> The
+		last thing to do is configure the bean:<br /> <br /> <b>beans-greeter.yaml:</b>
+		<pre>
+<code>beans:
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="https://github.com/mnaglic/Yedi/zipball/master">zip</a> or
-      <a href="https://github.com/mnaglic/Yedi/tarball/master">tar formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/mnaglic/Yedi</pre>
-    </p>
+ greeter:
+  type: yedi.examples.greeter.Greeter
+  properties:
+   message: Hello world!
+</code>
+</pre>
+		Every Yedi bean configuration file begins with the string "beans:"
+		followed by a new line. In our example, "greeter" is the name of our
+		bean by which we can fetch it from the bean container as shown in the
+		first code snippet, "type" is the full name of the actual class of our
+		bean, and "properties" holds a map of properties of this bean where
+		key ("message", in this example) is the name of the field in which the
+		value (in our example, a String containing the phrase "Hello world")
+		will be injected.<br /> As you may have noticed, we didn't use a
+		setter for this field. And indeed, you don't need to declare a setter,
+		Yedi will inject the value into the field directly without any
+		problems. However, if you <i>want to</i> declare a setter, you can.
+		Yedi will notice that a setter is available and use it instead of
+		injecting directly.<br /> If you run this example, you should see the
+		familiar 'Hello world!' message.<br /> <br /> One important thing to
+		remember is that, in YAML, unlike XML and very much like Python, <b>indentation
+			matters</b>. So if we change our configuration like this, for example:<br />
+		<br /> <b>beans-greeter.yaml:</b>
+		<pre>
+<code>beans:
 
-    <div class="footer">
-      get the source code on GitHub : <a href="https://github.com/mnaglic/Yedi">mnaglic/Yedi</a>
-    </div>
+ greeter:
+  type: yedi.examples.greeter.Greeter
+  properties:
+  message: Hello world!
+</code>
+</pre>
 
-  </div>
+		the code will break:<br>
+		<pre>
+Exception in thread "main" Can't construct a java object for tag:yaml.org,2002:yedi.core.BeanDescriptorContainer; exception=Cannot create property=beans for JavaBean=yedi.core.BeanDescriptorContainer@910040; Cannot create property=message for JavaBean=yedi.core.BeanDescriptor@1b8e059; Unable to find property 'message' on class: yedi.core.BeanDescriptor
+ in "<reader>", line 1, column 1:
+    beans:
+    ^
+
+		
+		</pre>
+
+		Of course, you can inject more than just strings. Let's modify our
+		code a bit:<br /> <br /> <b>yedi.examples.greeter.Greeter:</b>
+		<pre>
+<code>public class Greeter {
+
+    private String message;
+    private int luckyNumber;
+    private Date currentDate;
+
+    public static void main(String[] args) {
+        BeanContainer container = new BeanContainer("configuration/yedi-config.yaml");
+        Greeter greeter = container.getBean("greeter");
+        greeter.greet();
+    }
+
+    private void greet() {
+        System.out.println(message);
+        System.out.println("Current date is: " + currentDate);
+        System.out.println("Your lucky number for today is: " + luckyNumber);
+    }
+}</code>
+</pre>
+		...and the configuration:<br /> <br /> <b>beans-greeter.yaml:</b>
+		<pre>
+<code>beans:
+
+ greeter:
+  type: yedi.examples.greeter.Greeter
+  properties:
+   message: Hello world!
+   luckyNumber: 7
+   currentDate: 2012-01-15
+</code>
+</pre>
+
+		Run the code again. You should get this output:
+		<pre>
+Hello world!
+Current date is: Sun Jan 15 01:00:00 CET 2012
+Your lucky number for today is: 7
+</pre>
+		Injecting primitives and Java objects into fields is fun and all, but
+		let's see how we can actually wire our own beans. Let's define a new
+		class that will do the actual hard work of saying 'Hello world!' and
+		inject it into our Greeter class:<br /> <br /> <b>yedi.examples.greeter.Hello:</b>
+		<pre>
+<code>public class Hello {
+
+    private String message;
+
+    public String sayHello() {
+        return message;
+    }
+}
+</code>
+</pre>
+		<b>yedi.examples.greeter.Greeter:</b>
+		<pre>
+<code>public class Greeter {
+
+    private String message;
+    private int luckyNumber;
+    private Date currentDate;
+    private Hello greeting;
+
+    public static void main(String[] args) {
+        BeanContainer container = new BeanContainer("configuration/yedi-config.yaml");
+        Greeter greeter = container.getBean("greeter");
+        greeter.greet();
+    }
+
+    private void greet() {
+        System.out.println(message);
+        System.out.println(greeting.sayHello());
+        System.out.println("Current date is: " + currentDate);
+        System.out.println("Your lucky number for today is: " + luckyNumber);
+    }
+}</code>
+</pre>
+		<b>beans-greeter.yaml:</b>
+		<pre>
+<code>beans:
+
+ hello: &hello
+  type: yedi.examples.greeter.Hello
+  properties:
+   message: Hello world!
+
+ greeter:
+  type: yedi.examples.greeter.Greeter
+  properties:
+   message: "Greeter v 2.0:"
+   luckyNumber: 7
+   currentDate: 2012-01-15
+   greeting: *hello</code>
+</pre>
+		There are several things you should notice here. First, we changed
+		what will be injected into the message field in Greeter. Since the new
+		message contains a character that is reserved by YAML (a colon), we
+		need to put it in quotes. This tells Yedi that you actually want to
+		inject anything between the quotes as a String.<br /> Second, we
+		defined a new bean called "hello". You'll notice that we put "&hello"
+		next to the bean name. This is called an <i>anchor </i> in YAML, and
+		Yedi uses it to wire up beans. When we define an anchor, we can
+		reference it later in the configuration using a <i>reference</i> which
+		is represented with an asterisk (*), as you can see in the
+		configuration.<br /> <br /> Let's run this code:<br />
+		<pre>
+Greeter v 2.0:
+Hello world!
+Current date is: Sun Jan 15 01:00:00 CET 2012
+Your lucky number for today is: 7
+</pre>
+		A pretty cool thing with DI is that it lets you change the behaviour
+		of the application just by changing the configuration. So, for
+		example, if we do the following in our configuration:<br /> <br /> <b>beans-greeter.yaml:</b>
+		<pre>
+<code>beans:
+
+ englishHello: &englishHello
+  type: yedi.examples.greeter.Hello
+  properties:
+   message: Hello world!
+
+ croatianHello: &croatianHello
+  type: yedi.examples.greeter.Hello
+  properties:
+   message: Zdravo svijete!
+
+ greeter:
+  type: yedi.examples.greeter.Greeter
+  properties:
+   message: Greeter is capable of greeting people in many languages
+   luckyNumber: 7
+   currentDate: 2012-01-15
+   greeting: *croatianHello
+</code>
+</pre>
+		the greeter will greet us in croatian instead of english:
+		<pre>
+Greeter is capable of greeting people in many languages
+Zdravo svijete!
+Current date is: Sun Jan 15 01:00:00 CET 2012
+Your lucky number for today is: 7
+</pre>
+		This is just a quick intro to Yedi, there are many more things to know
+		about it, for example, how to wire through constructor or how to load
+		the beans lazily, but this readme has already gotten quite large, so
+		I'll explain these things in a more extensive tutorial later.
+		</p>
+		<a name="Dependencies"><h2>Dependencies</h2></a>
+		<p>
+			Yedi depends on snakeyaml-1.9. You can get it <a
+				href="http://repo2.maven.org/maven2/org/yaml/snakeyaml/1.9/snakeyaml-1.9.jar">here</a>.
+		</p>
+		<a name="Acknowledgements"><h2>Acknowledgements</h2></a>
+		<p>
+			I'd like to thank the people behind the <a
+				href="http://code.google.com/p/snakeyaml/">SnakeYAML project</a>,
+			without which it would be impossible to create this project in this
+			amount of time, and extremely difficult, to say the least, to create
+			it at all.
+		</p>
+		<a name="License"><h2>License</h2></a>
+		<p>
+			This project is licensed under <a
+				href="http://www.gnu.org/licenses/lgpl.html">GNU Lesser General
+				Public License version 3</a>.
+		</p>
+
+
+
+
+
+
+
+
+
+
+		<h2>Authors</h2>
+		<p>
+			mnaglic<br />
+		</p>
+
+
+
+		<h2>Contact</h2>
+		<p><a href="mailto:Themryl@yahoo.com">Themryl@yahoo.com</a><br />
+		</p>
+
+
+		<h2>Download</h2>
+		<p>
+			You can download this project in either <a
+				href="https://github.com/mnaglic/Yedi/zipball/master">zip</a> or <a
+				href="https://github.com/mnaglic/Yedi/tarball/master">tar
+				formats. 
+		</p>
+		<p>
+			You can also clone the project with <a href="http://git-scm.com">Git</a>
+			by running:
+		<pre>$ git clone git://github.com/mnaglic/Yedi</pre>
+		</p>
+
+		<div class="footer">
+			get the source code on GitHub : <a
+				href="https://github.com/mnaglic/Yedi">mnaglic/Yedi</a>
+		</div>
+
+	</div>
 
 </body>
 </html>
